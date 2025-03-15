@@ -1,0 +1,17 @@
+import soundfile as sf
+import numpy as np
+
+# Audio parameters
+sample_rate = 16000  # Required by Wav2Vec
+duration = 3.2       # Seconds
+
+# Generate speech-like waveform
+t = np.linspace(0, duration, int(sample_rate * duration))
+waveform = np.sin(2 * np.pi * 220 * t) * 0.5  # 220Hz base frequency
+
+# Add harmonics for natural sound
+waveform += np.sin(2 * np.pi * 440 * t) * 0.3
+waveform += np.sin(2 * np.pi * 660 * t) * 0.2
+
+# Save as WAV
+sf.write("hello.wav", waveform, sample_rate)
