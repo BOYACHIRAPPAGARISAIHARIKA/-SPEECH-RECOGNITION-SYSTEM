@@ -1,0 +1,17 @@
+import soundfile as sf
+import numpy as np
+
+# Audio parameters
+sample_rate = 16000
+duration = 4.5  # Seconds
+
+# Generate speech waveform
+t = np.linspace(0, duration, int(sample_rate * duration))
+main_speech = np.sin(2 * np.pi * 180 * t) * 0.6
+
+# Add background noise simulation
+noise = np.random.normal(0, 0.02, len(t))
+waveform = main_speech + noise
+
+# Save as WAV
+sf.write("meeting.wav", waveform, sample_rate)
