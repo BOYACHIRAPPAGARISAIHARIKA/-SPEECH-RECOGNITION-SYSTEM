@@ -1,0 +1,11 @@
+Create test files using:
+
+from scipy.io.wavfile import write
+import numpy as np
+
+# Generate test tone
+sample_rate = 16000
+duration = 5  # seconds
+t = np.linspace(0, duration, int(sample_rate * duration))
+audio_data = np.sin(2 * np.pi * 440 * t)  # 440Hz tone
+write("test.wav", sample_rate, audio_data)
