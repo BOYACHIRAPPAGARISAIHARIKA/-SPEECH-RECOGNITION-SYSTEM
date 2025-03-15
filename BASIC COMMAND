@@ -1,0 +1,17 @@
+Basic Command
+
+# Wav2Vec model (offline)
+python speech_to_text.py samples/hello.wav --model wav2vec
+
+# Google model (online)
+python speech_to_text.py samples/meeting.wav --model google
+
+
+Expected Output
+
+Processing samples/hello.wav with wav2vec model...
+
+Transcription Result:
+------------------------------
+Hello this is a demonstration of the speech recognition system
+------------------------------
